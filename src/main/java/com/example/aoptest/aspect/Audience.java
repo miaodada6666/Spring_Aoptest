@@ -36,7 +36,7 @@ public class Audience {
     {
         ha--;
         System.out.println(ha);
-//       System.out.println(criticismEngine.getCriticism());
+      System.out.println(criticismEngine.getCriticism());
         //System.out.println("clap clap clap");
     }
     @AfterThrowing("performance(h)")
