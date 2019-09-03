@@ -1,6 +1,7 @@
 package com.example.aoptest.aspect;
 
 import com.example.aoptest.impl.CriticismEngine;
+import com.example.aoptest.impl.CriticismEngineImpl;
 import org.aspectj.lang.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -9,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 public class Audience {
     @Autowired
-    private CriticismEngine criticismEngine;
+    private CriticismEngineImpl criticismEngine;
 
     @Pointcut(
             "execution(* com.example.aoptest.impl.Performance.perform(int))"+"&& args(ha)")
@@ -21,7 +22,7 @@ public class Audience {
 
         ha++;
         System.out.println(ha);
-        System.out.println("Sillencing cell phones");
+        System.out.println("前置通知：Sillencing cell phones");
 
     }
     @Before("performance(ha)")
@@ -29,15 +30,15 @@ public class Audience {
     {
         ha--;
         System.out.println(ha);
-        System.out.println("Taking Seats");
+        System.out.println("前置通知：Taking Seats");
     }
     @AfterReturning("performance(ha)")
     public  void applause(int ha)
     {
         ha--;
         System.out.println(ha);
-      System.out.println(criticismEngine.getCriticism());
-        //System.out.println("clap clap clap");
+        //System.out.println(criticismEngine.getCriticism());
+        System.out.println("后置通知：clap clap clap");
     }
     @AfterThrowing("performance(h)")
     public  void demandRefund(int h)
@@ -45,7 +46,7 @@ public class Audience {
     {
         h--;
         System.out.println(h);
-        System.out.println("demandRefund demandRefund");
+        System.out.println("异常通知：demandRefund demandRefund");
     }
 
 

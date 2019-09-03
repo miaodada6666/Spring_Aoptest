@@ -11,6 +11,6 @@ public class CriticismEngineImpl implements CriticismEngine {
     @Override
     public String getCriticism()
     {
-        return "what the fuck";
+        return "切面注入实现评论：Good Job！！";
     }
 }
