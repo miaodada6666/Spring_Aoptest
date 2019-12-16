@@ -37,10 +37,8 @@ public class AoptestApplicationTests {
                 "连接点函数：被通知监控的函数\r\n" +
                 "100\r\n" +
                 "99\r\n" +
-                "后置通知：clap clap clap\r\n", outContent.toString());
-
+                "后置通知：clap cl clap\r\n", outContent.toString());
     }
-
 
     @Test
     public void contextLoads2() {
